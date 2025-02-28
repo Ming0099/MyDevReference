@@ -74,3 +74,36 @@ https://www.google.com:443/search?q=hello&hl=ko
 
 * html 내부 북마크 등에 사용한다.
 * 서버에 전송되는 정보는 아니다.
+
+<br>
+
+## 웹 브라우저 요청 흐름
+
+<img src="../image/HTTP/HTTP_send_message.png" alt="URI" width="450px"/>
+
+<br>
+
+```
+https://www.google.com/search?q=hello&hl=ko
+
+
+[HTTP 요청 메시지]
+
+GET /search?q=hello&hl=ko HTTP/1.1 
+Host: www.google.com 
+```
+
+1. 웹 브라우저가 위와 같이 HTTP 메시지를 생성한다.
+2. SOCKET 라이브러리를 통해 TCP/IP 계층에 전달한다.
+3. TCP/IP 패킷을 생성한다.
+   * HTTP 메시지를 포함시킨다.
+4. 요청 패킷을 인터넷망을 통해서 서버에 전달한다.
+5. 서버에서 요청 패킷을 받고 응답 패킷을 만들어 웹 브라우저에 전달한다.
+6. 웹 브라우저에서 HTTP 응답 메시지를 받아 HTML 렌더링을 통해 결과를 볼 수 있게된다.
+
+<br>
+
+## reference
+
+<a href="https://www.inflearn.com/course/http-%EC%9B%B9-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC">
+모든 개발자를 위한 HTTP 웹 기본 지식 강의</a>
